@@ -1,0 +1,24 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+    <ul>
+      <% @post.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @post do |form| %>
+  <%= label_tag(:title, "Title") %>
+  <%= form.text_field(:title) %>
+
+  <%= label_tag(:body, "Body") %>
+  <%= form.text_field(:body) %>
+
+  <%= submit_tag %>
+<% end %>
