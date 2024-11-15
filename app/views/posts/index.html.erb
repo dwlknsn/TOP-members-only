@@ -9,4 +9,6 @@
   <% end %>
 </ul>
 
-<%= link_to "Create Post", new_post_path %>
+<% if user_signed_in? %>
+  <%= link_to "Create Post", new_post_path %>
+<% end %>
